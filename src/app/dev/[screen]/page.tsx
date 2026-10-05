@@ -3,6 +3,7 @@
  * responde 404 en producción). Sirve para comparar contra design/screens sin Supabase.
  *   /dev/inicio · /dev/resultados · /dev/sin-resultados · /dev/vacio
  *   /dev/ficha?tab=… · /dev/nuevo-paciente · /dev/captura · /dev/nueva-visita · /dev/login
+ *   /dev/agenda?vista=dia|semana&cita=…&nueva=1 (los enlaces internos llevan a /agenda real)
  */
 import { notFound } from 'next/navigation';
 import { Plus } from 'lucide-react';
@@ -24,14 +25,19 @@ import { HomeSearch } from '@/components/features/search/home-search';
 import { RecentPatients } from '@/components/features/search/recent-patients';
 import { TodayAppointmentsCard } from '@/components/features/search/today-appointments-card';
 import { VisitForm } from '@/components/features/visit/visit-form';
+import { AgendaToolbar } from '@/components/features/agenda/agenda-toolbar';
+import { AppointmentDialog } from '@/components/features/agenda/appointment-dialog';
+import { DayView } from '@/components/features/agenda/day-view';
+import { WeekView } from '@/components/features/agenda/week-view';
+import { dayTitle, slotOf, weekDays, weekTitle } from '@/lib/agenda';
 import { pendingTreatments } from '@/lib/data/visits';
-import { fxAlerts, fxConditions, fxFiles, fxPatient, fxPatientCards, fxSearchResults, fxServices, fxSession, fxVisits } from '../fixtures';
+import { fxAlerts, fxAppointments, fxConditions, fxFiles, fxPatient, fxPatientCards, fxSearchResults, fxServices, fxSession, fxVisits } from '../fixtures';
 
 const DEMO_NOW = new Date('2026-10-05T14:00:00Z');
 
-export default async function DevScreen({ params, searchParams }: { params: Promise<{ screen: string }>; searchParams: Promise<{ tab?: string }> }) {
+export default async function DevScreen({ params, searchParams }: { params: Promise<{ screen: string }>; searchParams: Promise<{ tab?: string; vista?: string; cita?: string; nueva?: string }> }) {
   if (process.env.NODE_ENV !== 'development') notFound();
-  const [{ screen }, { tab: rawTab }] = await Promise.all([params, searchParams]);
+  const [{ screen }, { tab: rawTab, vista, cita, nueva }] = await Promise.all([params, searchParams]);
 
   if (screen === 'login') {
     return (
@@ -63,7 +69,7 @@ export default async function DevScreen({ params, searchParams }: { params: Prom
             initialQuery={q}
             initialResults={screen === 'resultados' ? fxSearchResults : []}
             recent={<RecentPatients patients={screen === 'vacio' ? [] : fxPatientCards} />}
-            aside={<TodayAppointmentsCard />}
+            aside={<TodayAppointmentsCard appointments={screen === 'vacio' ? [] : fxAppointments.filter((a) => slotOf(a).date === '2026-10-05')} today="2026-10-05" />}
           />
         </main>
       );
@@ -73,7 +79,7 @@ export default async function DevScreen({ params, searchParams }: { params: Prom
       const tab = isPatientTab(rawTab) ? rawTab : 'resumen';
       const id = fxPatient.id;
       const content = {
-        resumen: <SummaryTab patientId={id} lastVisit={fxVisits[0]!} pending={pendingTreatments(fxVisits)} recentFiles={fxFiles.slice(0, 3)} />,
+        resumen: <SummaryTab patientId={id} lastVisit={fxVisits[0]!} pending={pendingTreatments(fxVisits)} recentFiles={fxFiles.slice(0, 3)} nextAppointment={fxAppointments.find((a) => a.patient_id === id) ?? null} />,
         visitas: <VisitsTab patientId={id} visits={fxVisits} paperPages={2} paperDate="2025-03-03T15:00:00Z" />,
         antecedentes: <ConditionsTab patientId={id} conditions={fxConditions} />,
         archivos: <FilesTab patientId={id} files={fxFiles} />,
@@ -124,6 +130,27 @@ export default async function DevScreen({ params, searchParams }: { params: Prom
         </main>
       );
       break;
+    case 'agenda': {
+      const today = '2026-10-05';
+      const week = vista === 'semana';
+      const days = weekDays(today);
+      body = (
+        <main className="flex flex-1 flex-col gap-4 pb-6 md:gap-5">
+          <AgendaToolbar view={week ? 'semana' : 'dia'} date={today} today={today} title={week ? weekTitle(days) : dayTitle(today, today)} />
+          <div className="px-4 md:px-8">
+            {week ? (
+              <WeekView days={days} today={today} appointments={fxAppointments} nowMinutes={640} />
+            ) : (
+              <DayView date={today} today={today} appointments={fxAppointments.filter((a) => slotOf(a).date === today)} selectedId={cita ?? null} nowMinutes={640} />
+            )}
+          </div>
+          {nueva ? (
+            <AppointmentDialog mode="create" closeHref="/dev/agenda" today={today} patient={null} date={today} time="12:30" duration={30} />
+          ) : null}
+        </main>
+      );
+      break;
+    }
     default:
       notFound();
   }

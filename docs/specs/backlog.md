@@ -45,9 +45,9 @@ Orden de implementación por valor. Estimación en horas de desarrollo.
 **Total MVP ≈ 50 h**
 
 ## Fase 2 · Agenda (≈ 16 h)
-- [ ] Agenda semanal y diaria, CRUD de citas ([F08](features/F08-agenda.md))
-- [ ] Recordatorio por WhatsApp
-- [ ] "Citas de hoy" y "Próxima cita" reales en Inicio y Ficha
+- [x] Agenda semanal y diaria, CRUD de citas ([F08](features/F08-agenda.md))
+- [x] Recordatorio por WhatsApp
+- [x] "Citas de hoy" y "Próxima cita" reales en Inicio y Ficha
 
 ## Después
 - Cola offline real (si la conexión del consultorio lo exige)
