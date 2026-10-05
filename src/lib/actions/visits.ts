@@ -5,6 +5,7 @@ import { createClient } from '@/lib/supabase/server';
 import { visitSchema, type VisitRawInput } from '@/lib/schemas/visit';
 import type { ActionResult, TreatmentStatus } from '@/types/domain';
 import { dbErrorMessage, fieldErrors } from './errors';
+import { APP_HOME } from '@/lib/constants';
 
 /**
  * F06 · Guarda la visita y sus tratamientos.
@@ -54,7 +55,7 @@ export async function createVisit(patientId: string, input: VisitRawInput): Prom
   }
 
   revalidatePath(`/pacientes/${patientId}`);
-  revalidatePath('/');
+  revalidatePath(APP_HOME);
   return { ok: true, data: { id: created.id, count: rows.length } };
 }
 

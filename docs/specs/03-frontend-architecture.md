@@ -23,7 +23,7 @@ src/
       reset-password/page.tsx
     (app)/
       layout.tsx                     AppShell + OnlineStatusProvider + Toaster
-      page.tsx                       Inicio / buscador
+      inicio/page.tsx                Inicio / buscador (APP_HOME)
       captura/page.tsx
       agenda/page.tsx                fase 2
       pacientes/
@@ -34,6 +34,7 @@ src/
           error.tsx
           editar/page.tsx
           visitas/nueva/page.tsx
+    page.tsx                         Landing pública (/) · lib/clinic.ts
     auth/callback/route.ts           callback de recuperar contraseña
     layout.tsx                       <html lang="es-PE">, Manrope
     globals.css                      tokens (@theme)
@@ -199,7 +200,7 @@ Conocen el dominio y se repiten en **2 o más pantallas**. Son el corazón del r
 | | `SearchResults` | client | Contador + `PatientRow[]` + `EmptyState` sin resultados con atajos prellenados |
 | | `RecentPatients` | server | `PatientRow[]` con `showLastVisit` |
 | | `HomeHeader` | server | Fecha + saludo + botones Captura / Nuevo |
-| | `TodayAppointmentsCard` | server | Fase 2 (placeholder "Fase 2" hasta entonces) |
+| | `TodayAppointmentsCard` | server | Citas de hoy reales → agenda del día |
 | `patient/` | `PatientHeader` | server | `PatientAvatar` + `PatientIdentity` + `ContactActions` + "Nueva visita" + `MedicalAlerts` |
 | | `PatientTabs` | client | `Tabs` sincronizado con `?tab=` |
 | | `SummaryTab` | server | Última visita, pendientes, archivos recientes |
@@ -237,7 +238,12 @@ Cada página **solo compone** componentes; no contiene estilos ni lógica de neg
 - **Tipo:** server (redirige a `/` si hay sesión) → `LoginForm`.
 - **Compone:** panel de marca + `LoginForm`.
 
-### `/` · Inicio · F02
+### `/` · Landing pública
+- **Tipo:** server, estática y pública (el middleware deja pasar `/`). Indexable; el resto del sistema sigue `noindex`.
+- **Datos:** `lib/clinic.ts` (dirección, WhatsApp, geo; horario y doctora en `null` se ocultan).
+- **Compone:** `SiteHeader` · `Hero` (+ `HeroGem`: octaedro de partículas en `<canvas>` con JS puro —se arma al cargar, gira, el cursor lo inclina y empuja, clic/toque lo hace estallar—; halo CSS `.gd-hero` que sigue al cursor) · `ServicesSection` · `CareSection` · `DoctorSection` · `LocationSection` (mapa embebido) · `AccessSection` (reusa `LoginForm`) · `SiteFooter`. JSON-LD `Dentist`.
+
+### `/inicio` · Inicio · F02
 - **Tipo:** server.
 - **Datos:** `getRecentPatients(6)`.
 - **Compone:** `PageHeader`/`HomeHeader` · `PatientSearchBox` + `SearchResults` (client, `usePatientSearch`) · `RecentPatients` · `TodayAppointmentsCard`.
@@ -270,8 +276,11 @@ Cada página **solo compone** componentes; no contiene estilos ni lógica de neg
 - **Datos:** `getNextRecordNumber()`.
 - **Acciones:** `quickCapture`, `undoQuickCapture`; subida de fotos con `usePhotoUpload`.
 
-### `/agenda` · F08 (fase 2)
-- Placeholder "Disponible en la siguiente fase" en el MVP.
+### `/agenda` · F08
+- **Tipo:** server. Estado en la URL: `?vista=dia|semana&fecha=&cita=&nueva=1&hora=&paciente=&editar=`.
+- **Datos:** `getAppointments(desde, hasta)` (cita + paciente + alertas); `getAppointment(id)` para reprogramar.
+- **Compone:** `AgendaToolbar` · `DayView` (lista + `AppointmentPanel` con `AppointmentStatusPicker` y recordatorio) | `WeekView` · `AppointmentDialog` (client).
+- **Acciones:** `createAppointment`, `rescheduleAppointment`, `setAppointmentStatus` (`lib/actions/appointments.ts`). "Atender" → `/pacientes/[id]/visitas/nueva?cita=` (el trigger cierra la cita).
 
 ### Matriz de reuso
 

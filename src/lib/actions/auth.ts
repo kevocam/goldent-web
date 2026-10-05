@@ -4,6 +4,7 @@ import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { REMEMBER_COOKIE, SESSION_COOKIE } from '@/lib/supabase/middleware';
+import { APP_HOME } from '@/lib/constants';
 
 export interface LoginState {
   error?: string;
@@ -41,7 +42,7 @@ export async function login(_prev: LoginState, formData: FormData): Promise<Logi
   if (remember) store.set(REMEMBER_COOKIE, '1', { ...base, maxAge: 60 * 60 * 24 * 30 });
   else store.delete(REMEMBER_COOKIE);
 
-  redirect('/');
+  redirect(APP_HOME);
 }
 
 export async function signOut(): Promise<void> {
@@ -84,5 +85,5 @@ export async function updatePassword(_prev: ResetState, formData: FormData): Pro
 
   const store = await cookies();
   store.set(SESSION_COOKIE, '1', { httpOnly: true, sameSite: 'lax', path: '/' });
-  redirect('/');
+  redirect(APP_HOME);
 }

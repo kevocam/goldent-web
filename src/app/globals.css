@@ -12,6 +12,7 @@
   --color-gold-25: #fffbf2;
   --color-gold-50: #fbf5e8;
   --color-gold-100: #ebd9b3;
+  --color-gold-300: #e2b65a;
   --color-gold-500: #c9962b;
   --color-gold-700: #8a6512;
   --color-gold-900: #6b4e0e;
@@ -48,6 +49,7 @@
   --color-warn: #c2620f;
   --color-xray: #2a2a2e;
   --color-xray-fg: #e9e6e0;
+  --color-night: #111111;
 
   /* Estados de tratamiento */
   --color-st-planned-bg: #eef0f3;
@@ -110,4 +112,33 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
+}
+
+/* ------------------------------------------------------------------
+   Landing · hero. La gema es un <canvas> (hero-gem.tsx); el CSS solo pone
+   el halo que sigue al cursor (--mx/--my los escribe el JS) y la entrada.
+------------------------------------------------------------------- */
+.gd-hero {
+  --mx: 72%;
+  --my: 45%;
+  background:
+    radial-gradient(520px circle at var(--mx) var(--my), rgb(232 166 196 / 0.45), transparent 62%),
+    radial-gradient(900px circle at 85% 10%, rgb(201 150 43 / 0.10), transparent 60%),
+    var(--color-pink-25);
+  transition: background-position 0.2s;
+}
+
+@keyframes gd-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.gd-rise { animation: gd-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.gd-rise-2 { animation-delay: 0.12s; }
+.gd-rise-3 { animation-delay: 0.24s; }
+
+html:has(.landing) { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gd-rise { animation-duration: 0.01s; }
+  html:has(.landing) { scroll-behavior: auto; }
 }

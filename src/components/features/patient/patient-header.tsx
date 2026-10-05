@@ -8,6 +8,7 @@ import { BackLink } from '@/components/shared/page-header';
 import { PatientAvatar, PatientIdentity } from '@/components/shared/patient-identity';
 import { ageFrom, fullName } from '@/lib/format';
 import type { Patient } from '@/types/domain';
+import { APP_HOME } from '@/lib/constants';
 
 export const PATIENT_TABS = [
   { id: 'resumen', label: 'Resumen' },
@@ -38,7 +39,7 @@ export function PatientHeader({ patient, alerts, tab }: PatientHeaderProps) {
   return (
     <header className="flex flex-col gap-3 border-b border-line-card bg-surface px-4 pt-2.5 md:px-8 md:pt-3">
       <div className="flex items-center justify-between">
-        <BackLink href="/" label="Pacientes" />
+        <BackLink href={APP_HOME} label="Pacientes" />
         <Link href={`${base}/editar`} aria-label="Editar paciente" className="flex size-11 items-center justify-center text-ink md:hidden">
           <Pencil className="size-5" aria-hidden />
         </Link>

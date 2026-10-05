@@ -2,7 +2,7 @@
  * Datos de ejemplo para /dev/* (solo desarrollo). Copian los del diseño
  * para comparar pantalla a pantalla sin conectar Supabase.
  */
-import type { FileWithUrl, Patient, PatientCard, PatientCondition, Service, VisitWithTreatments } from '@/types/domain';
+import type { AgendaAppointment, AppointmentStatus, FileWithUrl, Patient, PatientCard, PatientCondition, Service, VisitWithTreatments } from '@/types/domain';
 
 const now = '2026-10-05T14:00:00Z';
 const clinic = '00000000-0000-0000-0000-00000000c111';
@@ -164,3 +164,32 @@ export const fxServices: Svc[] = [
 ];
 
 export const fxSession = { clinicId: clinic, staffName: 'Dra. Goldent' };
+
+/** Semana del 5 al 10 de octubre de 2026 (como design/screens/11 y 12). */
+const ap = (n: number, date: string, time: string, minutes: number, patient: number, reason: string, status: AppointmentStatus): AgendaAppointment => {
+  const p = fxPatientCards[patient]!;
+  const starts = new Date(`${date}T${time}:00-05:00`);
+  return {
+    id: uid(900 + n),
+    patient_id: p.id,
+    starts_at: starts.toISOString(),
+    ends_at: new Date(starts.getTime() + minutes * 60000).toISOString(),
+    status,
+    reason,
+    notes: null,
+    patient: { id: p.id, first_names: p.first_names, last_names: p.last_names, record_number: p.record_number, dni: p.dni, phone: p.phone, age: p.age, alerts: p.alerts },
+  };
+};
+
+export const fxAppointments: AgendaAppointment[] = [
+  ap(1, '2026-10-05', '09:00', 45, 4, 'Profilaxis', 'done'),
+  ap(2, '2026-10-05', '10:00', 45, 5, 'Ortodoncia · mensualidad', 'no_show'),
+  ap(3, '2026-10-05', '11:30', 60, 1, 'Resina compuesta · pieza 36', 'confirmed'),
+  ap(4, '2026-10-05', '16:00', 45, 2, 'Control', 'scheduled'),
+  ap(5, '2026-10-06', '09:30', 90, 3, 'Prótesis fija', 'scheduled'),
+  ap(6, '2026-10-06', '09:45', 30, 4, 'Control', 'scheduled'),
+  ap(7, '2026-10-07', '17:00', 45, 4, 'Control', 'cancelled'),
+  ap(8, '2026-10-08', '10:30', 90, 0, 'Continuación de endodoncia', 'confirmed'),
+  ap(9, '2026-10-09', '12:00', 60, 2, 'Profilaxis', 'scheduled'),
+  ap(10, '2026-10-10', '09:00', 90, 3, 'Prótesis fija', 'scheduled'),
+];

@@ -7,6 +7,7 @@ import { cn } from '@/lib/cn';
 import { ConnectionIndicator } from './connection-indicator';
 import { NAV_ITEMS } from './nav-items';
 import { UserMenu } from './user-menu';
+import { APP_HOME } from '@/lib/constants';
 
 /** Tablet (≥ 768 px): barra lateral de 104 px. */
 export function SideNav({ staffName }: { staffName: string }) {
@@ -16,7 +17,7 @@ export function SideNav({ staffName }: { staffName: string }) {
       aria-label="Principal"
       className="sticky top-0 hidden h-dvh w-[104px] shrink-0 flex-col items-center gap-2 border-r border-line-card bg-surface py-5 md:flex"
     >
-      <Link href="/" aria-label="GOLDENT, ir al inicio" className="mb-3 flex size-14 items-center justify-center">
+      <Link href={APP_HOME} aria-label="GOLDENT, ir al inicio" className="mb-3 flex size-14 items-center justify-center">
         <LogoMark size={44} />
       </Link>
       {NAV_ITEMS.map(({ href, label, icon: Icon, match }) => {

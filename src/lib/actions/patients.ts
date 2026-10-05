@@ -6,6 +6,7 @@ import { fullName } from '@/lib/format';
 import { patientSchema, quickCaptureSchema, type PatientFormValues, type QuickCaptureValues } from '@/lib/schemas/patient';
 import type { ActionResult } from '@/types/domain';
 import { dbErrorMessage, fieldErrors } from './errors';
+import { APP_HOME } from '@/lib/constants';
 
 type Created = { id: string; record_number: string };
 
@@ -27,7 +28,7 @@ export async function createPatient(input: PatientFormValues): Promise<ActionRes
     if (e2) return { ok: false, error: `Paciente guardado (${data.record_number}), pero no sus antecedentes. Edítalo para completarlos.` };
   }
 
-  revalidatePath('/');
+  revalidatePath(APP_HOME);
   return { ok: true, data };
 }
 
@@ -54,7 +55,7 @@ export async function updatePatient(id: string, input: PatientFormValues): Promi
   }
 
   revalidatePath(`/pacientes/${id}`);
-  revalidatePath('/');
+  revalidatePath(APP_HOME);
   return { ok: true, data: undefined };
 }
 
@@ -63,7 +64,7 @@ export async function archivePatient(id: string): Promise<ActionResult> {
   const supabase = await createClient();
   const { error } = await supabase.from('patients').update({ deleted_at: new Date().toISOString() }).eq('id', id);
   if (error) return { ok: false, error: dbErrorMessage(error) };
-  revalidatePath('/');
+  revalidatePath(APP_HOME);
   return { ok: true, data: undefined };
 }
 
@@ -76,7 +77,7 @@ export async function quickCapture(input: QuickCaptureValues): Promise<ActionRes
   const { data, error } = await supabase.from('patients').insert(parsed.data).select('id, record_number').single();
   if (error) return { ok: false, error: dbErrorMessage(error) };
 
-  revalidatePath('/');
+  revalidatePath(APP_HOME);
   return { ok: true, data };
 }
 
@@ -87,7 +88,7 @@ export async function undoQuickCapture(id: string): Promise<ActionResult> {
   const { error } = await supabase.from('patients').update({ deleted_at: now }).eq('id', id);
   if (error) return { ok: false, error: dbErrorMessage(error) };
   await supabase.from('files').update({ deleted_at: now }).eq('patient_id', id);
-  revalidatePath('/');
+  revalidatePath(APP_HOME);
   return { ok: true, data: undefined };
 }
 

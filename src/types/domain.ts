@@ -61,6 +61,22 @@ export interface DraftTreatment {
   notes?: string;
 }
 
+export type Appointment = Tables['appointments']['Row'];
+
+/** Cita con los datos del paciente que muestra la agenda (identidad, contacto y alertas). */
+export interface AgendaAppointment extends Pick<Appointment, 'id' | 'patient_id' | 'starts_at' | 'ends_at' | 'status' | 'reason' | 'notes'> {
+  patient: {
+    id: string;
+    first_names: string;
+    last_names: string;
+    record_number: string;
+    dni: string | null;
+    phone: string | null;
+    age: number | null;
+    alerts: string[];
+  };
+}
+
 /** Resultado estándar de las Server Actions. */
 export type ActionResult<T = undefined> =
   | { ok: true; data: T }

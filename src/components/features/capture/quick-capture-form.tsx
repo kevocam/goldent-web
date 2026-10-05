@@ -18,6 +18,7 @@ import { usePhotoUpload } from '@/hooks/use-photo-upload';
 import { quickCapture, undoQuickCapture } from '@/lib/actions/patients';
 import { formatPhone, pluralize } from '@/lib/format';
 import { quickCaptureSchema, type QuickCaptureInput, type QuickCaptureValues } from '@/lib/schemas/patient';
+import { APP_HOME } from '@/lib/constants';
 
 interface Saved {
   id: string;
@@ -99,7 +100,7 @@ export function QuickCaptureForm({ nextRecordNumber }: { nextRecordNumber: strin
 
       if (after === 'exit') {
         toast({ title: 'Historia guardada', description: `${entry.name} · ${entry.record_number}` });
-        router.push('/');
+        router.push(APP_HOME);
         router.refresh();
         return;
       }
@@ -156,7 +157,7 @@ export function QuickCaptureForm({ nextRecordNumber }: { nextRecordNumber: strin
             <span className="text-[13px] font-semibold">en esta sesión</span>
           </span>
         </div>
-        <ButtonLink href="/" variant="secondary" className="hidden md:inline-flex">
+        <ButtonLink href={APP_HOME} variant="secondary" className="hidden md:inline-flex">
           Terminar
         </ButtonLink>
       </div>

@@ -8,6 +8,7 @@ import { PatientHeader, isPatientTab, type PatientTab } from '@/components/featu
 import { PersonalDataTab } from '@/components/features/patient/personal-data-tab';
 import { SummaryTab } from '@/components/features/patient/summary-tab';
 import { VisitsTab } from '@/components/features/patient/visits-tab';
+import { getNextAppointment } from '@/lib/data/appointments';
 import { getFiles } from '@/lib/data/files';
 import { getPatient, getPatientAlerts, getPatientConditions } from '@/lib/data/patients';
 import { getVisits, pendingTreatments } from '@/lib/data/visits';
@@ -32,8 +33,16 @@ export default async function PatientPage({ params, searchParams }: Props) {
   let content: React.ReactNode;
   switch (tab) {
     case 'resumen': {
-      const [visits, files] = await Promise.all([getVisits(id), getFiles(id)]);
-      content = <SummaryTab patientId={id} lastVisit={visits[0] ?? null} pending={pendingTreatments(visits)} recentFiles={files.slice(0, 3)} />;
+      const [visits, files, next] = await Promise.all([getVisits(id), getFiles(id), getNextAppointment(id).catch(() => null)]);
+      content = (
+        <SummaryTab
+          patientId={id}
+          lastVisit={visits[0] ?? null}
+          pending={pendingTreatments(visits)}
+          recentFiles={files.slice(0, 3)}
+          nextAppointment={next}
+        />
+      );
       break;
     }
     case 'visitas': {

@@ -1,5 +1,8 @@
 import type { AppointmentStatus, FileKind, MaritalStatus, TreatmentStatus } from '@/types/domain';
 
+/** Inicio del sistema (buscador). "/" es la landing pública. */
+export const APP_HOME = '/inicio';
+
 export const TREATMENT_STATUS: Record<TreatmentStatus, { label: string; className: string }> = {
   planned: { label: 'Planificado', className: 'bg-st-planned-bg text-st-planned-fg' },
   in_progress: { label: 'En proceso', className: 'bg-st-progress-bg text-st-progress-fg' },
