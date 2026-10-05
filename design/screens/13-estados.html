@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<!-- Referencia de diseño extraída de GOLDENT___App_clinica.html. Plantilla con bindings {{...}} y lógica de ejemplo en <script type="text/x-dc">. Para verla renderizada, abrir el HTML original. -->
+<meta charset="utf-8">
+<title>GOLDENT · Estados</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.g,.g *{box-sizing:border-box}
+.g{font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;color:#111111;-webkit-font-smoothing:antialiased}
+.g button,.g input{font-family:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;border-radius:14px;font-size:15px;font-weight:700;border:1.5px solid transparent;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn-p{background:#8A6512;color:#FFFFFF}
+.btn-s{background:#FFFFFF;color:#111111;border-color:#D9D4CB}
+.ico{width:22px;height:22px;flex:none}
+.muted{color:#5B5B5F}
+.tag{font-size:12px;font-weight:800;letter-spacing:.14em;color:#8A6512;text-transform:uppercase}
+.frame{flex:1;border-radius:20px;background:#F7F6F3;border:1px solid #E8E5DF;padding:22px;display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;background:#FFFFFF;border:1px solid #E8E5DF;border-radius:18px;padding:24px}
+.circ{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.sk{border-radius:8px;background:#ECE9E3}
+</style>
+</helmet>
+<div class="g" style="width:1440px;height:1120px;background:#FFFFFF;padding:56px 64px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:baseline;gap:16px">
+<h1 style="margin:0;font-size:32px;font-weight:800;letter-spacing:-.02em">Estados</h1>
+<p class="muted" style="margin:0;font-size:16px;font-weight:500">Vacíos, carga, error, sin resultados, confirmación y sin conexión. Mismo tono: corto, claro y con una acción.</p>
+</div>
+<div style="flex:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:24px">
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="tag">Inicio · sin pacientes</span>
+<div class="frame">
+<div class="empty">
+<svg width="72" height="72" sc-camel-view-box="0 0 48 48" aria-hidden="true"><path d="M24 3 45 24 24 45 3 24Z" fill="#FCF1F6" stroke="#E8A6C4" stroke-width="1.2"></path><path d="M17.5 18.6c0-2.8 2.6-4 6.5-3.1 3.9-.9 6.5.3 6.5 3.1 0 3.4-1.4 5-1.8 8.2-.3 2.7-.9 4.7-2.1 4.7-1.4 0-1.4-4.2-2.6-4.2s-1.2 4.2-2.6 4.2c-1.2 0-1.8-2-2.1-4.7-.4-3.2-1.8-4.8-1.8-8.2Z" fill="none" stroke="#C9962B" stroke-width="1.4"></path></svg>
+<h2 style="margin:0;font-size:19px;font-weight:800">Aún no hay pacientes</h2>
+<p class="muted" style="margin:0;font-size:15px;line-height:1.5;font-weight:500">Registra uno nuevo o empieza a digitalizar tus historias en papel.</p>
+<a class="btn btn-p" href="NuevoPaciente.dc.html" style="width:100%">Nuevo paciente</a>
+<a class="btn btn-s" href="CapturaRapida.dc.html" style="width:100%">Captura rápida</a>
+</div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="tag">Búsqueda sin resultados</span>
+<div class="frame">
+<div style="display:flex;align-items:center;gap:10px;height:60px;padding:0 16px;background:#FFFFFF;border:2px solid #C9962B;border-radius:16px"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="#8A6512" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span style="font-size:18px;font-weight:700">Vargas Ttito</span></div>
+<div class="empty">
+<span class="circ" style="background:#F1EEE8;color:#5B5B5F"><svg width="30" height="30" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></span>
+<h2 style="margin:0;font-size:19px;font-weight:800">No encontramos “Vargas Ttito”</h2>
+<p class="muted" style="margin:0;font-size:15px;line-height:1.5;font-weight:500">Prueba con el DNI o el celular.</p>
+<a class="btn btn-p" href="NuevoPaciente.dc.html" style="width:100%">Crear paciente</a>
+</div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="tag">Ficha · sin visitas</span>
+<div class="frame">
+<div class="empty">
+<span class="circ" style="background:#FBF5E8;color:#8A6512"><svg width="30" height="30" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+<h2 style="margin:0;font-size:19px;font-weight:800">Sin visitas registradas</h2>
+<p class="muted" style="margin:0;font-size:15px;line-height:1.5;font-weight:500">Cada visita guarda el motivo, los tratamientos por pieza y tus notas.</p>
+<a class="btn btn-p" href="NuevaVisita.dc.html" style="width:100%">Registrar primera visita</a>
+</div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="tag">Ficha · sin archivos</span>
+<div class="frame">
+<div class="empty">
+<span class="circ" style="background:#FCF1F6;color:#8A3F63"><svg width="30" height="30" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="m21 16-5-5-9 9"></path></svg></span>
+<h2 style="margin:0;font-size:19px;font-weight:800">Sin archivos</h2>
+<p class="muted" style="margin:0;font-size:15px;line-height:1.5;font-weight:500">Agrega radiografías, fotos intraorales o el formato en papel.</p>
+<button type="button" class="btn btn-p" style="width:100%">Tomar foto</button>
+<button type="button" class="btn btn-s" style="width:100%">Subir archivo</button>
+</div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="tag">Cargando</span>
+<div class="frame" aria-busy="true" aria-label="Cargando pacientes">
+<div class="sk" style="height:60px;border-radius:16px"></div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{skel}}" as="s" hint-placeholder-count="4">
+<div style="display:flex;align-items:center;gap:12px;padding:12px;background:#FFFFFF;border:1px solid #E8E5DF;border-radius:16px">
+<span class="sk" style="width:44px;height:44px;border-radius:50%;flex:none"></span>
+<span style="flex:1;display:flex;flex-direction:column;gap:8px"><span class="sk" style="height:12px;width:{{s.a}}"></span><span class="sk" style="height:10px;width:{{s.b}}"></span></span>
+<span class="sk" style="width:44px;height:44px;border-radius:12px;flex:none"></span>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="tag">Error al cargar</span>
+<div class="frame">
+<div class="empty" style="border-color:#F2B8B2">
+<span class="circ" style="background:#FDECEA;color:#A3201A"><svg width="30" height="30" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20Z"></path><path d="M12 10v4M12 17h.01"></path></svg></span>
+<h2 style="margin:0;font-size:19px;font-weight:800">No pudimos abrir la ficha</h2>
+<p class="muted" style="margin:0;font-size:15px;line-height:1.5;font-weight:500">Revisa la conexión e inténtalo otra vez. No se perdió ningún dato.</p>
+<button type="button" class="btn btn-p" style="width:100%"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"></path></svg>Reintentar</button>
+</div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="tag">Confirmación al guardar</span>
+<div class="frame" style="justify-content:flex-end">
+<div class="sk" style="height:18px;width:60%;background:#ECE9E3"></div>
+<div class="sk" style="height:120px;background:#FFFFFF;border:1px solid #E8E5DF;border-radius:16px"></div>
+<div style="flex:1"></div>
+<div role="status" style="display:flex;align-items:center;gap:12px;padding:14px 14px 14px 16px;border-radius:16px;background:#111111;color:#FFFFFF;box-shadow:0 12px 30px rgba(17,17,17,.25)">
+<span style="width:30px;height:30px;border-radius:50%;background:#1F8A50;display:flex;align-items:center;justify-content:center;flex:none"><svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span>
+<span style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:800">Visita guardada</span><span style="font-size:13px;font-weight:600;color:#D9D4CB">Rosa Quispe · 2 tratamientos</span></span>
+<a href="FichaVisitas.dc.html" style="min-height:44px;display:flex;align-items:center;padding:0 8px;font-size:14px;font-weight:800;color:#F1C3D7">Ver</a>
+</div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span class="tag">Sin conexión</span>
+<div class="frame">
+<div role="status" style="display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:16px;background:#FBF3E2;border:1px solid #EBD9B3;color:#6B4E0E">
+<svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-top:2px"><path d="M2 2l20 20M8.5 16.5a5 5 0 0 1 7 0M5 12.5a10 10 0 0 1 5-2.7M2 8.8a15 15 0 0 1 4.2-2.6M22 8.8A15 15 0 0 0 11 5M19 12.5a10 10 0 0 0-2.3-1.6"></path><circle cx="12" cy="20" r="1"></circle></svg>
+<span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:15px;font-weight:800">Sin conexión</span><span style="font-size:14px;line-height:1.45;font-weight:600">Puedes seguir trabajando. Los cambios se guardan en la tablet y se sincronizan al volver la señal.</span></span>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#FFFFFF;border:1px solid #E8E5DF;border-radius:16px">
+<span style="width:12px;height:12px;border-radius:50%;background:#C2620F;flex:none"></span>
+<span style="flex:1;font-size:15px;font-weight:700">3 cambios pendientes de sincronizar</span>
+</div>
+<p class="muted" style="margin:0;font-size:14px;line-height:1.5;font-weight:500">En la barra lateral, el indicador “En línea” pasa a naranja “Sin conexión”. Las fotos se suben en cuanto vuelve la red.</p>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1120}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { skel: [{ a: '70%', b: '45%' }, { a: '55%', b: '60%' }, { a: '80%', b: '40%' }, { a: '62%', b: '50%' }] };
+  }
+}
+</script>
+
+
+</body></html>

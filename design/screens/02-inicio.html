@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<!-- Referencia de diseño extraída de GOLDENT___App_clinica.html. Plantilla con bindings {{...}} y lógica de ejemplo en <script type="text/x-dc">. Para verla renderizada, abrir el HTML original. -->
+<meta charset="utf-8">
+<title>GOLDENT · Inicio</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.g,.g *{box-sizing:border-box}
+.g{font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;color:#111111;-webkit-font-smoothing:antialiased}
+.g button,.g input{font-family:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:14px;font-size:16px;font-weight:700;border:1.5px solid transparent;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn-p{background:#8A6512;color:#FFFFFF}
+.btn-s{background:#FFFFFF;color:#111111;border-color:#D9D4CB}
+.btn-wa{background:#13723F;color:#FFFFFF}
+.btn-ic{width:52px;padding:0}
+.al{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 12px;border-radius:999px;background:#FDECEA;border:1px solid #F2B8B2;color:#A3201A;font-size:13px;font-weight:700;white-space:nowrap}
+.st{display:inline-flex;align-items:center;gap:6px;min-height:28px;padding:0 10px;border-radius:999px;font-size:13px;font-weight:700;white-space:nowrap}
+.card{background:#FFFFFF;border:1px solid #E8E5DF;border-radius:20px}
+.ico{width:22px;height:22px;flex:none}
+.muted{color:#5B5B5F}
+.nav{width:84px;height:72px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:12px;font-weight:700;text-decoration:none;color:#5B5B5F}
+.nav-on{background:#FBF5E8;color:#6B4E0E}
+a{color:#8A6512}
+</style>
+</helmet>
+<div class="g" style="width:1194px;height:834px;display:flex;background:#F7F6F3;overflow:hidden">
+
+<nav aria-label="Principal" style="width:104px;flex:none;background:#FFFFFF;border-right:1px solid #E8E5DF;display:flex;flex-direction:column;align-items:center;padding:20px 0;gap:8px">
+<a href="Inicio.dc.html" aria-label="GOLDENT, ir al inicio" style="display:flex;width:56px;height:56px;align-items:center;justify-content:center;margin-bottom:12px"><svg width="48" height="48" sc-camel-view-box="0 0 48 48" aria-hidden="true"><path d="M24 1.5 46.5 24 24 46.5 1.5 24Z" fill="#E8A6C4"></path><path d="M24 1.5 33 24 24 46.5 15 24Z" fill="#F1C3D7"></path><path d="M16.5 17.6c0-3 2.8-4.3 7.5-3.3 4.7-1 7.5.3 7.5 3.3 0 3.8-1.6 5.6-2.1 9.2-.4 3-1 5.3-2.4 5.3-1.6 0-1.6-4.8-3-4.8s-1.4 4.8-3 4.8c-1.4 0-2-2.3-2.4-5.3-.5-3.6-2.1-5.4-2.1-9.2Z" fill="#C9962B" stroke="#8A6512" stroke-width=".9"></path></svg></a>
+<a class="nav nav-on" href="Inicio.dc.html" aria-current="page"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21a7 7 0 0 1 14 0M16 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"></path></svg><span>Pacientes</span></a>
+<a class="nav" href="AgendaSemana.dc.html"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg><span>Agenda</span></a>
+<a class="nav" href="CapturaRapida.dc.html"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4Z"></path><circle cx="12" cy="13" r="3.5"></circle></svg><span>Captura</span></a>
+<div style="flex:1"></div>
+<span style="display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#17643A"><span style="width:10px;height:10px;border-radius:50%;background:#1F8A50"></span>En línea</span>
+<button type="button" aria-label="Cuenta y cerrar sesión" style="width:48px;height:48px;border-radius:50%;border:0;background:#FCF1F6;color:#8A3F63;font-weight:800;font-size:13px;cursor:pointer">Dra</button>
+</nav>
+
+<main style="flex:1;min-width:0;padding:28px 32px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;align-items:flex-end;gap:12px">
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px">
+<span class="muted" style="font-size:15px;font-weight:600">Lunes 5 de octubre</span>
+<h1 style="margin:0;font-size:28px;font-weight:800;letter-spacing:-.02em">Buenos días, doctora</h1>
+</div>
+<a class="btn btn-s" href="CapturaRapida.dc.html"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4Z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>Captura rápida</a>
+<a class="btn btn-p" href="NuevoPaciente.dc.html"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Nuevo paciente</a>
+</div>
+
+<label style="display:flex;align-items:center;gap:16px;height:84px;padding:0 14px 0 26px;background:#FFFFFF;border:2px solid #C9962B;border-radius:22px;box-shadow:0 10px 30px rgba(17,17,17,.06);flex:none">
+<svg width="30" height="30" sc-camel-view-box="0 0 24 24" fill="none" stroke="#8A6512" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+<input type="search" aria-label="Buscar paciente por nombre, DNI o celular" placeholder="Buscar por nombre, DNI o celular" value="{{q}}" sc-camel-on-change="{{onQ}}" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:24px;font-weight:700;color:#111111">
+<sc-if value="{{hasQ}}" hint-placeholder-val="{{ false }}">
+<button type="button" sc-camel-on-click="{{clear}}" aria-label="Borrar búsqueda" style="width:56px;height:56px;border-radius:16px;border:0;background:#F1EEE8;color:#111111;display:flex;align-items:center;justify-content:center;cursor:pointer"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+</sc-if>
+</label>
+
+<sc-if value="{{noQ}}" hint-placeholder-val="{{ true }}">
+<div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px">
+<section style="display:flex;flex-direction:column;gap:12px;min-height:0">
+<h2 style="margin:0;font-size:18px;font-weight:800">Recientes</h2>
+<div style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{recientes}}" as="p" hint-placeholder-count="6">
+<div class="card" style="display:flex;align-items:center;gap:14px;padding:10px 12px 10px 14px;border-radius:18px">
+<span aria-hidden="true" style="width:52px;height:52px;border-radius:50%;background:#FCF1F6;color:#8A3F63;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex:none">{{p.ini}}</span>
+<a href="Ficha.dc.html" style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;text-decoration:none;color:#111111;min-height:52px;justify-content:center">
+<span style="font-size:17px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{p.name}}</span>
+<span class="muted" style="font-size:14px;font-weight:600;font-variant-numeric:tabular-nums">HC {{p.hc}} · DNI {{p.dni}} · {{p.tel}}</span>
+</a>
+<sc-if value="{{p.hasAl}}" hint-placeholder-val="{{ false }}"><span class="al"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20Z"></path><path d="M12 10v4M12 17h.01"></path></svg>{{p.alTxt}}</span></sc-if>
+<span class="muted" style="font-size:13px;font-weight:600;width:64px;text-align:right">{{p.last}}</span>
+<a class="btn btn-wa btn-ic" href="{{p.wa}}" aria-label="WhatsApp a {{p.name}}"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3 3Z"></path></svg></a>
+<a class="btn btn-s btn-ic" href="{{p.call}}" aria-label="Llamar a {{p.name}}"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"></path></svg></a>
+</div>
+</sc-for>
+</div>
+</section>
+<aside class="card" style="padding:20px;display:flex;flex-direction:column;gap:12px;align-self:start">
+<div style="display:flex;align-items:center;gap:8px">
+<h2 style="margin:0;font-size:18px;font-weight:800;flex:1">Citas de hoy</h2>
+<span class="st" style="background:#F1EEE8;color:#5B5B5F">Fase 2</span>
+</div>
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{hoy}}" as="c" hint-placeholder-count="4">
+<a href="AgendaDia.dc.html" style="display:flex;align-items:center;gap:12px;min-height:60px;border-top:1px solid #EFECE6;text-decoration:none;color:#111111">
+<span style="font-size:15px;font-weight:800;width:46px;font-variant-numeric:tabular-nums">{{c.h}}</span>
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{c.n}}</span><span class="muted" style="font-size:13px;font-weight:600">{{c.m}}</span></span>
+<span style="width:10px;height:10px;border-radius:50%;background:{{c.dot}}" title="{{c.s}}"></span>
+</a>
+</sc-for>
+</div>
+<a href="AgendaSemana.dc.html" style="display:flex;align-items:center;gap:6px;min-height:44px;font-size:15px;font-weight:700;text-decoration:none">Ver agenda<svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></a>
+</aside>
+</div>
+</sc-if>
+
+<sc-if value="{{hasResults}}" hint-placeholder-val="{{ false }}">
+<section style="display:flex;flex-direction:column;gap:12px">
+<h2 style="margin:0;font-size:16px;font-weight:700;color:#5B5B5F">{{countTxt}}</h2>
+<div style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{results}}" as="p" hint-placeholder-count="2">
+<div class="card" style="display:flex;align-items:center;gap:16px;padding:14px 14px 14px 16px">
+<span aria-hidden="true" style="width:56px;height:56px;border-radius:50%;background:#FCF1F6;color:#8A3F63;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;flex:none">{{p.ini}}</span>
+<a href="Ficha.dc.html" style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:#111111">
+<span style="font-size:19px;font-weight:800">{{p.name}}</span>
+<span class="muted" style="font-size:15px;font-weight:600;font-variant-numeric:tabular-nums">HC {{p.hc}} · {{p.age}} años · DNI {{p.dni}} · {{p.tel}}</span>
+</a>
+<sc-if value="{{p.hasAl}}" hint-placeholder-val="{{ false }}"><span class="al"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20Z"></path><path d="M12 10v4M12 17h.01"></path></svg>{{p.alTxt}}</span></sc-if>
+<a class="btn btn-wa" href="{{p.wa}}" aria-label="WhatsApp a {{p.name}}"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3 3Z"></path></svg>WhatsApp</a>
+<a class="btn btn-s" href="{{p.call}}" aria-label="Llamar a {{p.name}}"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"></path></svg>Llamar</a>
+</div>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{noResults}}" hint-placeholder-val="{{ false }}">
+<section class="card" style="flex:1;max-height:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:40px;text-align:center">
+<span style="width:72px;height:72px;border-radius:50%;background:#F1EEE8;color:#5B5B5F;display:flex;align-items:center;justify-content:center"><svg width="32" height="32" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5M8.5 8.5l5 5M13.5 8.5l-5 5"></path></svg></span>
+<h2 style="margin:0;font-size:22px;font-weight:800">No encontramos “{{q}}”</h2>
+<p class="muted" style="margin:0;font-size:16px;font-weight:500;max-width:420px;line-height:1.5">Revisa cómo está escrito o busca por DNI o celular. Si es un paciente nuevo, regístralo ahora.</p>
+<div style="display:flex;gap:12px;margin-top:6px">
+<a class="btn btn-p" href="NuevoPaciente.dc.html"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Crear paciente</a>
+<a class="btn btn-s" href="CapturaRapida.dc.html">Es una historia en papel</a>
+</div>
+</section>
+</sc-if>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;busqueda&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;vacía&quot;,&quot;con resultados&quot;,&quot;sin resultados&quot;],&quot;default&quot;:&quot;vacía&quot;},&quot;$preview&quot;:{&quot;width&quot;:1194,&quot;height&quot;:834}}">
+const P = [
+  { name: 'Rosa Elvira Quispe Mamani', hc: '00248', age: 47, dni: '41827365', tel: '951 284 736', al: ['Penicilina', 'Diabetes', 'Presión alta'], last: '28 sep' },
+  { name: 'Luis Alberto Huamán Ccama', hc: '00251', age: 34, dni: '72451983', tel: '987 105 342', al: [], last: '2 oct' },
+  { name: 'María Fernanda Torres Salazar', hc: '00250', age: 29, dni: '70318426', tel: '964 773 019', al: ['Embarazo'], last: '1 oct' },
+  { name: 'Jorge Luis Mendoza Apaza', hc: '00197', age: 61, dni: '29561840', tel: '958 402 117', al: ['Cardiopatía', 'Anticoagulantes'], last: '30 sep' },
+  { name: 'Carmen Rosa Condori Flores', hc: '00243', age: 52, dni: '40976215', tel: '973 618 254', al: [], last: '26 sep' },
+  { name: 'Diego Armando Paredes Vilca', hc: '00249', age: 17, dni: '76840193', tel: '912 547 806', al: [], last: '25 sep' },
+  { name: 'Lucía Gutiérrez Chambi', hc: '00112', age: 38, dni: '45128376', tel: '945 330 671', al: ['Látex'], last: '12 ago' },
+  { name: 'Ana Sofía Quispe Ramos', hc: '00236', age: 24, dni: '73905418', tel: '986 214 590', al: [], last: '4 jul' }
+];
+const norm = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, '');
+const deco = (p) => {
+  const parts = p.name.split(' ');
+  return Object.assign({}, p, {
+    ini: parts[0][0] + parts[parts.length - 2][0],
+    hasAl: p.al.length > 0,
+    alTxt: p.al.length > 2 ? p.al.length + ' alertas' : p.al.join(' · '),
+    wa: 'https://wa.me/51' + p.tel.replace(/\s/g, ''),
+    call: 'tel:+51' + p.tel.replace(/\s/g, '')
+  });
+};
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { q: null }; }
+  renderVals() {
+    const preset = { 'vacía': '', 'con resultados': 'quispe', 'sin resultados': 'Vargas Ttito' }[this.props.busqueda ?? 'vacía'] ?? '';
+    const q = this.state.q ?? preset;
+    const nq = norm(q);
+    const results = nq ? P.filter((p) => norm(p.name + p.dni + p.tel).indexOf(nq) >= 0).map(deco) : [];
+    return {
+      q,
+      onQ: (e) => this.setState({ q: e.target.value }),
+      clear: () => this.setState({ q: '' }),
+      hasQ: nq.length > 0,
+      noQ: nq.length === 0,
+      hasResults: results.length > 0,
+      noResults: nq.length > 0 && results.length === 0,
+      results,
+      countTxt: results.length + (results.length === 1 ? ' resultado para “' : ' resultados para “') + q + '”',
+      recientes: P.slice(0, 6).map(deco),
+      hoy: [
+        { h: '09:00', n: 'Carmen Condori', m: 'Profilaxis', s: 'Atendida', dot: '#1F8A50' },
+        { h: '10:00', n: 'Diego Paredes', m: 'Ortodoncia', s: 'No asistió', dot: '#C2620F' },
+        { h: '11:30', n: 'Luis Huamán', m: 'Resina compuesta', s: 'Confirmada', dot: '#2563B8' },
+        { h: '16:00', n: 'María Torres', m: 'Control', s: 'Programada', dot: '#8C93A0' }
+      ]
+    };
+  }
+}
+</script>
+
+
+</body></html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<!-- Referencia de diseño extraída de GOLDENT___App_clinica.html. Plantilla con bindings {{...}} y lógica de ejemplo en <script type="text/x-dc">. Para verla renderizada, abrir el HTML original. -->
+<meta charset="utf-8">
+<title>GOLDENT · Iniciar sesión</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.g,.g *{box-sizing:border-box}
+.g{font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;color:#111111;-webkit-font-smoothing:antialiased}
+.g button,.g input{font-family:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:14px;font-size:16px;font-weight:700;border:1.5px solid transparent;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn-p{background:#8A6512;color:#FFFFFF}
+.btn-lg{min-height:64px;font-size:18px;border-radius:16px;padding:0 28px}
+.lbl{display:block;font-size:13px;font-weight:700;color:#5B5B5F;letter-spacing:.04em;text-transform:uppercase}
+.inp{display:block;width:100%;height:60px;border:1.5px solid #D9D4CB;border-radius:14px;padding:0 18px;font-size:18px;font-weight:600;background:#FFFFFF;color:#111111}
+.inp::placeholder{color:#76767C;font-weight:500}
+.muted{color:#5B5B5F}
+a{color:#8A6512}a:hover{color:#6B4E0E}
+</style>
+</helmet>
+<div class="g" style="width:1194px;height:834px;display:flex;background:#FFFFFF">
+
+<section style="flex:1;position:relative;overflow:hidden;background:#FCF4F8;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px">
+<svg width="620" height="620" sc-camel-view-box="0 0 48 48" aria-hidden="true" style="position:absolute;right:-180px;bottom:-200px;opacity:.55"><path d="M24 1.5 46.5 24 24 46.5 1.5 24Z" fill="none" stroke="#E8A6C4" stroke-width=".25"></path><path d="M24 1.5 33 24 24 46.5 15 24Z" fill="none" stroke="#E8A6C4" stroke-width=".25"></path><path d="M1.5 24h45" stroke="#E8A6C4" stroke-width=".25"></path></svg>
+<span class="muted" style="font-size:14px;font-weight:700;letter-spacing:.2em;position:relative">HISTORIA CLÍNICA DIGITAL</span>
+<div style="display:flex;flex-direction:column;gap:28px;align-items:flex-start;position:relative">
+<svg width="132" height="132" sc-camel-view-box="0 0 48 48" aria-hidden="true"><path d="M24 1.5 46.5 24 24 46.5 1.5 24Z" fill="#E8A6C4"></path><path d="M24 1.5 33 24 24 46.5 15 24Z" fill="#F1C3D7"></path><path d="M1.5 24h45" stroke="#FFFFFF" stroke-opacity=".55" stroke-width=".8"></path><path d="M16.5 17.6c0-3 2.8-4.3 7.5-3.3 4.7-1 7.5.3 7.5 3.3 0 3.8-1.6 5.6-2.1 9.2-.4 3-1 5.3-2.4 5.3-1.6 0-1.6-4.8-3-4.8s-1.4 4.8-3 4.8c-1.4 0-2-2.3-2.4-5.3-.5-3.6-2.1-5.4-2.1-9.2Z" fill="#C9962B" stroke="#8A6512" stroke-width=".9"></path></svg>
+<p style="margin:0;font-size:42px;font-weight:800;letter-spacing:-.025em;line-height:1.1;max-width:460px;text-wrap:balance">La historia de cada paciente, a un toque.</p>
+<p class="muted" style="margin:0;font-size:18px;line-height:1.55;font-weight:500;max-width:420px">Busca por nombre, DNI o celular y escríbele por WhatsApp sin salir de la ficha.</p>
+</div>
+<span class="muted" style="font-size:14px;font-weight:600;position:relative">Funciona sin conexión: tus cambios se sincronizan al volver la señal.</span>
+</section>
+
+<section style="width:540px;flex:none;display:flex;flex-direction:column;justify-content:center;padding:0 72px;gap:36px">
+<div style="display:flex;align-items:center;gap:14px">
+<svg width="52" height="52" sc-camel-view-box="0 0 48 48" aria-hidden="true"><path d="M24 1.5 46.5 24 24 46.5 1.5 24Z" fill="#E8A6C4"></path><path d="M24 1.5 33 24 24 46.5 15 24Z" fill="#F1C3D7"></path><path d="M16.5 17.6c0-3 2.8-4.3 7.5-3.3 4.7-1 7.5.3 7.5 3.3 0 3.8-1.6 5.6-2.1 9.2-.4 3-1 5.3-2.4 5.3-1.6 0-1.6-4.8-3-4.8s-1.4 4.8-3 4.8c-1.4 0-2-2.3-2.4-5.3-.5-3.6-2.1-5.4-2.1-9.2Z" fill="#C9962B" stroke="#8A6512" stroke-width=".9"></path></svg>
+<div style="display:flex;flex-direction:column;gap:4px">
+<span style="font-size:26px;font-weight:800;letter-spacing:.14em;color:#8A6512;line-height:1">GOLDENT</span>
+<span class="muted" style="font-size:11px;font-weight:700;letter-spacing:.28em">CONSULTORIO ODONTOLÓGICO</span>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<h1 style="margin:0;font-size:32px;font-weight:800;letter-spacing:-.02em">Iniciar sesión</h1>
+<p class="muted" style="margin:0;font-size:16px;font-weight:500">Ingresa con la cuenta del consultorio.</p>
+</div>
+<form style="display:flex;flex-direction:column;gap:20px">
+<label style="display:flex;flex-direction:column;gap:8px"><span class="lbl">Correo electrónico</span><input class="inp" type="email" placeholder="tucorreo@gmail.com" autocomplete="email"></label>
+<label style="display:flex;flex-direction:column;gap:8px"><span class="lbl">Contraseña</span>
+<span style="display:flex;align-items:center;height:60px;border:1.5px solid #D9D4CB;border-radius:14px;background:#FFFFFF;padding-left:18px">
+<input type="password" aria-label="Contraseña" placeholder="••••••••" style="flex:1;min-width:0;border:0;outline:0;height:100%;font-size:18px;font-weight:600;background:transparent;color:#111111">
+<button type="button" aria-label="Mostrar contraseña" style="width:56px;height:56px;border:0;background:transparent;color:#5B5B5F;display:flex;align-items:center;justify-content:center;cursor:pointer"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+</span></label>
+<label style="display:flex;align-items:center;gap:14px;min-height:48px;cursor:pointer">
+<input type="checkbox" checked="" style="width:28px;height:28px;accent-color:#8A6512;margin:0">
+<span style="font-size:16px;font-weight:600">Mantener la sesión iniciada en esta tablet</span>
+</label>
+<a class="btn btn-p btn-lg" href="Inicio.dc.html" style="width:100%">Entrar</a>
+</form>
+<a href="#" style="align-self:center;font-size:16px;font-weight:700;min-height:44px;display:flex;align-items:center">¿Olvidaste tu contraseña?</a>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1194,&quot;height&quot;:834}}">
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+
+
+</body></html>

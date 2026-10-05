@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<!-- Referencia de diseño extraída de GOLDENT___App_clinica.html. Plantilla con bindings {{...}} y lógica de ejemplo en <script type="text/x-dc">. Para verla renderizada, abrir el HTML original. -->
+<meta charset="utf-8">
+<title>GOLDENT · Agenda semanal</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.g,.g *{box-sizing:border-box}
+.g{font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;color:#111111;-webkit-font-smoothing:antialiased}
+.g button{font-family:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:14px;font-size:16px;font-weight:700;border:1.5px solid transparent;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn-p{background:#8A6512;color:#FFFFFF}
+.btn-s{background:#FFFFFF;color:#111111;border-color:#D9D4CB}
+.btn-ic{width:52px;padding:0}
+.ico{width:22px;height:22px;flex:none}
+.muted{color:#5B5B5F}
+.nav{width:84px;height:72px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:12px;font-weight:700;text-decoration:none;color:#5B5B5F}
+.nav-on{background:#FBF5E8;color:#6B4E0E}
+</style>
+</helmet>
+<div class="g" style="width:1194px;height:834px;display:flex;background:#F7F6F3;overflow:hidden">
+
+<nav aria-label="Principal" style="width:104px;flex:none;background:#FFFFFF;border-right:1px solid #E8E5DF;display:flex;flex-direction:column;align-items:center;padding:20px 0;gap:8px">
+<a href="Inicio.dc.html" aria-label="GOLDENT, ir al inicio" style="display:flex;width:56px;height:56px;align-items:center;justify-content:center;margin-bottom:12px"><svg width="48" height="48" sc-camel-view-box="0 0 48 48" aria-hidden="true"><path d="M24 1.5 46.5 24 24 46.5 1.5 24Z" fill="#E8A6C4"></path><path d="M24 1.5 33 24 24 46.5 15 24Z" fill="#F1C3D7"></path><path d="M16.5 17.6c0-3 2.8-4.3 7.5-3.3 4.7-1 7.5.3 7.5 3.3 0 3.8-1.6 5.6-2.1 9.2-.4 3-1 5.3-2.4 5.3-1.6 0-1.6-4.8-3-4.8s-1.4 4.8-3 4.8c-1.4 0-2-2.3-2.4-5.3-.5-3.6-2.1-5.4-2.1-9.2Z" fill="#C9962B" stroke="#8A6512" stroke-width=".9"></path></svg></a>
+<a class="nav" href="Inicio.dc.html"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21a7 7 0 0 1 14 0M16 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"></path></svg><span>Pacientes</span></a>
+<a class="nav nav-on" href="AgendaSemana.dc.html" aria-current="page"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg><span>Agenda</span></a>
+<a class="nav" href="CapturaRapida.dc.html"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4Z"></path><circle cx="12" cy="13" r="3.5"></circle></svg><span>Captura</span></a>
+</nav>
+
+<main style="flex:1;min-width:0;padding:24px 32px 20px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:12px">
+<h1 style="margin:0;font-size:28px;font-weight:800;letter-spacing:-.02em">Agenda</h1>
+<span style="display:inline-flex;align-items:center;min-height:26px;padding:0 10px;border-radius:999px;background:#F1EEE8;color:#5B5B5F;font-size:12px;font-weight:700">Fase 2</span>
+<div style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px">
+<button type="button" class="btn btn-s btn-ic" aria-label="Semana anterior"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
+<span style="font-size:18px;font-weight:800;min-width:170px;text-align:center">5 – 10 oct 2026</span>
+<button type="button" class="btn btn-s btn-ic" aria-label="Semana siguiente"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
+</div>
+<div role="group" aria-label="Vista" style="display:inline-flex;padding:4px;border-radius:14px;background:#F1EEE8;gap:4px">
+<a href="AgendaDia.dc.html" style="min-height:44px;display:flex;align-items:center;padding:0 16px;border-radius:10px;font-size:15px;font-weight:700;color:#5B5B5F;text-decoration:none">Día</a>
+<a href="AgendaSemana.dc.html" aria-current="page" style="min-height:44px;display:flex;align-items:center;padding:0 16px;border-radius:10px;font-size:15px;font-weight:800;color:#111111;text-decoration:none;background:#FFFFFF;box-shadow:0 1px 3px rgba(17,17,17,.12)">Semana</a>
+</div>
+<button type="button" class="btn btn-p"><svg class="ico" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Nueva cita</button>
+</div>
+
+<div style="background:#FFFFFF;border:1px solid #E8E5DF;border-radius:20px;overflow:hidden;display:flex;flex-direction:column">
+<div style="display:grid;grid-template-columns:56px repeat(6,minmax(0,1fr));border-bottom:1px solid #E8E5DF">
+<span></span>
+<sc-for list="{{dias}}" as="d" hint-placeholder-count="6">
+<div style="display:flex;align-items:center;justify-content:center;gap:8px;height:54px;border-left:1px solid #EFECE6">
+<span style="font-size:14px;font-weight:700;color:#5B5B5F">{{d.l}}</span>
+<span style="width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;background:{{d.bg}};color:{{d.fg}}">{{d.n}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display:grid;grid-template-columns:56px repeat(6,minmax(0,1fr));height:560px">
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{horas}}" as="h" hint-placeholder-count="10"><span style="height:56px;padding:4px 8px 0 0;text-align:right;font-size:12px;font-weight:700;color:#5B5B5F;font-variant-numeric:tabular-nums">{{h}}</span></sc-for>
+</div>
+<sc-for list="{{dias}}" as="d" hint-placeholder-count="6">
+<div style="position:relative;border-left:1px solid #EFECE6;background-image:repeating-linear-gradient(to bottom,#EFECE6 0,#EFECE6 1px,transparent 1px,transparent 56px);background-color:{{d.col}}">
+<sc-for list="{{d.citas}}" as="c" hint-placeholder-count="2">
+<a href="AgendaDia.dc.html" style="position:absolute;left:4px;right:4px;top:{{c.top}}px;height:{{c.h}}px;border-radius:10px;padding:4px 8px;background:{{c.bg}};color:{{c.fg}};text-decoration:{{c.td}};overflow:hidden;display:flex;flex-direction:column;gap:1px">
+<span style="font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{c.n}}</span>
+<span style="font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{c.t}} · {{c.m}}</span>
+</a>
+</sc-for>
+<sc-if value="{{d.hoy}}" hint-placeholder-val="{{ false }}">
+<span aria-label="Hora actual 10:40" style="position:absolute;left:0;right:0;top:149px;height:2px;background:#8A6512"><span style="position:absolute;left:-5px;top:-4px;width:10px;height:10px;border-radius:50%;background:#8A6512"></span></span>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+<sc-for list="{{leyenda}}" as="s" hint-placeholder-count="5"><span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#5B5B5F"><span style="width:14px;height:14px;border-radius:4px;background:{{s.bg}};border:1.5px solid {{s.fg}}"></span>{{s.t}}</span></sc-for>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1194,&quot;height&quot;:834}}">
+const ST = {
+  'Programada': ['#EEF0F3', '#3F4652'], 'Confirmada': ['#E6EFFA', '#1D4F91'], 'Atendida': ['#E5F4EC', '#17643A'],
+  'Cancelada': ['#F2F2F2', '#5B5B5F'], 'No asistió': ['#FCEBDD', '#9A4A0B']
+};
+const H = 56;
+const fmt = (h) => { const hh = Math.floor(h); const mm = Math.round((h - hh) * 60); return (hh < 10 ? '0' : '') + hh + ':' + (mm < 10 ? '0' : '') + mm; };
+const c = (h, dur, n, m, s) => ({ n, m, s, t: fmt(h), top: Math.round((h - 8) * H) + 2, h: Math.round(dur * H) - 4, bg: ST[s][0], fg: ST[s][1], td: s === 'Cancelada' ? 'line-through' : 'none' });
+const DIAS = [
+  { l: 'Lun', n: '5', hoy: true, citas: [c(9, .75, 'Carmen Condori', 'Profilaxis', 'Atendida'), c(10, .75, 'Diego Paredes', 'Ortodoncia', 'No asistió'), c(11.5, 1, 'Luis Huamán', 'Resina', 'Confirmada'), c(16, .75, 'María Torres', 'Control', 'Programada')] },
+  { l: 'Mar', n: '6', citas: [c(9.5, 1.5, 'Jorge Mendoza', 'Prótesis fija', 'Programada'), c(15, 1, 'Lucía Gutiérrez', 'Destartraje', 'Confirmada')] },
+  { l: 'Mié', n: '7', citas: [c(10, 1, 'Ana Sofía Quispe', 'Blanqueamiento', 'Programada'), c(17, .75, 'Carmen Condori', 'Control', 'Cancelada')] },
+  { l: 'Jue', n: '8', citas: [c(10.5, 1.5, 'Rosa Quispe', 'Endodoncia', 'Confirmada'), c(16, .75, 'Diego Paredes', 'Ortodoncia', 'Programada')] },
+  { l: 'Vie', n: '9', citas: [c(9, 1, 'Luis Huamán', 'Resina', 'Programada'), c(12, 1, 'María Torres', 'Profilaxis', 'Programada')] },
+  { l: 'Sáb', n: '10', citas: [c(9, 1.5, 'Jorge Mendoza', 'Prótesis fija', 'Programada')] }
+];
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      dias: DIAS.map((d) => Object.assign({}, d, { hoy: !!d.hoy, bg: d.hoy ? '#8A6512' : 'transparent', fg: d.hoy ? '#FFFFFF' : '#111111', col: d.hoy ? '#FFFCF5' : '#FFFFFF' })),
+      horas: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+      leyenda: Object.keys(ST).map((t) => ({ t, bg: ST[t][0], fg: ST[t][1] }))
+    };
+  }
+}
+</script>
+
+
+</body></html>
