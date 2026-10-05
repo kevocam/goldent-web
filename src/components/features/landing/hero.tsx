@@ -1,14 +1,14 @@
 import { MapPin, MessageCircle } from 'lucide-react';
 import { ButtonAnchor, buttonClasses } from '@/components/ui/button';
 import { CLINIC, clinicMapsUrl, clinicWhatsappUrl } from '@/lib/clinic';
-import { HeroArt } from './hero-art';
+import { HeroGem } from './hero-gem';
 
 /** Hero: lo que distingue al consultorio + reservar por WhatsApp. */
 export function Hero() {
   return (
-    <section id="inicio" className="relative overflow-hidden bg-pink-25">
+    <section id="inicio" className="gd-hero relative overflow-hidden">
       <div className="relative mx-auto grid max-w-[1200px] items-center gap-12 px-4 py-14 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] md:px-10 md:py-24">
-        <div className="flex flex-col items-start gap-6">
+        <div className="gd-rise flex flex-col items-start gap-6">
           <span className="inline-flex min-h-8 items-center rounded-full border border-pink-200 bg-surface px-3.5 text-[13px] font-extrabold tracking-[.06em] text-pink-800 uppercase">
             Consultorio odontológico · {CLINIC.city}
           </span>
@@ -39,8 +39,12 @@ export function Hero() {
           </a>
         </div>
 
-        <div className="flex justify-center md:justify-end">
-          <HeroArt className="max-md:w-[min(100%,340px)]" />
+        <div className="gd-rise gd-rise-2 flex flex-col items-center gap-2 md:items-end">
+          <HeroGem className="max-md:w-[min(100%,360px)]" />
+          <p className="m-0 w-[min(100%,540px)] text-center text-[13px] font-bold tracking-[.06em] text-ink-subtle uppercase max-md:w-full">
+            <span className="hidden md:inline">Pasa el cursor o haz clic en el diamante</span>
+            <span className="md:hidden">Toca el diamante</span>
+          </p>
         </div>
       </div>
     </section>

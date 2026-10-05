@@ -241,7 +241,7 @@ Cada página **solo compone** componentes; no contiene estilos ni lógica de neg
 ### `/` · Landing pública
 - **Tipo:** server, estática y pública (el middleware deja pasar `/`). Indexable; el resto del sistema sigue `noindex`.
 - **Datos:** `lib/clinic.ts` (dirección, WhatsApp, geo; horario y doctora en `null` se ocultan).
-- **Compone:** `SiteHeader` · `Hero` (+ `HeroDiamonds`, animación solo CSS `gd-*` con `prefers-reduced-motion`) · `ServicesSection` · `CareSection` · `DoctorSection` · `LocationSection` (mapa embebido) · `AccessSection` (reusa `LoginForm`) · `SiteFooter`. JSON-LD `Dentist`.
+- **Compone:** `SiteHeader` · `Hero` (+ `HeroGem`: octaedro de partículas en `<canvas>` con JS puro —se arma al cargar, gira, el cursor lo inclina y empuja, clic/toque lo hace estallar—; halo CSS `.gd-hero` que sigue al cursor) · `ServicesSection` · `CareSection` · `DoctorSection` · `LocationSection` (mapa embebido) · `AccessSection` (reusa `LoginForm`) · `SiteFooter`. JSON-LD `Dentist`.
 
 ### `/inicio` · Inicio · F02
 - **Tipo:** server.

@@ -3,7 +3,6 @@ import { Lock, MessageCircle } from 'lucide-react';
 import { ButtonAnchor, buttonClasses } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
 import { CLINIC, clinicWhatsappUrl } from '@/lib/clinic';
-import { ThemeToggle } from './theme-toggle';
 
 /** Encabezado de la landing: logo, secciones, Ingresar y Reservar cita. */
 export function SiteHeader() {
@@ -28,7 +27,6 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="ml-auto flex gap-2.5 md:ml-0">
-          <ThemeToggle />
           <a href="#acceso" className={buttonClasses('secondary', 'sm')}>
             <Lock className="size-[18px]" aria-hidden />
             Ingresar
