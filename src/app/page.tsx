@@ -7,6 +7,7 @@ import { LocationSection } from '@/components/features/landing/location-section'
 import { ServicesSection } from '@/components/features/landing/services-section';
 import { SiteFooter } from '@/components/features/landing/site-footer';
 import { SiteHeader } from '@/components/features/landing/site-header';
+import { themeInitScript } from '@/components/features/landing/theme-toggle';
 import { CLINIC } from '@/lib/clinic';
 
 const description = `Consultorio odontológico en ${CLINIC.city}: restauraciones, endodoncia, prótesis, ortodoncia, implantes y más. ${CLINIC.address}. Reserva tu cita por WhatsApp.`;
@@ -44,7 +45,9 @@ const jsonLd = {
 /** Landing pública (/). El sistema vive en /inicio. */
 export default function LandingPage() {
   return (
-    <div className="landing min-h-dvh bg-surface text-ink">
+    <div className="landing min-h-dvh bg-surface text-ink" suppressHydrationWarning>
+      {/* Aplica el tema guardado antes de pintar (sin parpadeo). */}
+      <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteHeader />
       <main>

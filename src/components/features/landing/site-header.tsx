@@ -3,6 +3,7 @@ import { Lock, MessageCircle } from 'lucide-react';
 import { ButtonAnchor, buttonClasses } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
 import { CLINIC, clinicWhatsappUrl } from '@/lib/clinic';
+import { ThemeToggle } from './theme-toggle';
 
 /** Encabezado de la landing: logo, secciones, Ingresar y Reservar cita. */
 export function SiteHeader() {
@@ -14,7 +15,7 @@ export function SiteHeader() {
 
   return (
     <header className="border-b border-line-card bg-surface">
-      <div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-7 gap-y-3 px-4 py-4 md:px-10">
+      <div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-4 gap-y-3 px-4 py-4 md:gap-x-7 md:px-10">
         <Link href="/" aria-label="GOLDENT, inicio" className="no-underline">
           <Logo className="hidden sm:flex [&_svg]:size-11" />
           <Logo compact className="sm:hidden" />
@@ -27,6 +28,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="ml-auto flex gap-2.5 md:ml-0">
+          <ThemeToggle />
           <a href="#acceso" className={buttonClasses('secondary', 'sm')}>
             <Lock className="size-[18px]" aria-hidden />
             Ingresar

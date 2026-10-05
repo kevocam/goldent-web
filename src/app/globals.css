@@ -12,6 +12,7 @@
   --color-gold-25: #fffbf2;
   --color-gold-50: #fbf5e8;
   --color-gold-100: #ebd9b3;
+  --color-gold-300: #e2b65a;
   --color-gold-500: #c9962b;
   --color-gold-700: #8a6512;
   --color-gold-900: #6b4e0e;
@@ -48,6 +49,7 @@
   --color-warn: #c2620f;
   --color-xray: #2a2a2e;
   --color-xray-fg: #e9e6e0;
+  --color-night: #111111;
 
   /* Estados de tratamiento */
   --color-st-planned-bg: #eef0f3;
@@ -113,33 +115,116 @@
 }
 
 /* ------------------------------------------------------------------
-   Landing · diamante del hero con movimiento sutil (solo CSS).
-   Respeta "reducir movimiento" del sistema.
+   Landing · arte del hero (React + CSS, sin librerías).
+   Las capas usan --px/--py (posición del mouse, -0.5…0.5) para el parallax;
+   las animaciones van en elementos internos para no pisar ese transform.
 ------------------------------------------------------------------- */
 @keyframes gd-float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+  50% { transform: translateY(-22px); }
 }
 @keyframes gd-sway {
-  0%, 100% { transform: rotate(-1.2deg); }
-  50% { transform: rotate(1.2deg); }
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes gd-spin {
+  to { transform: rotate(360deg); }
 }
 @keyframes gd-glint {
   0% { stroke-dashoffset: 0; opacity: 0; }
-  15% { opacity: 0.9; }
-  85% { opacity: 0.9; }
+  12%, 88% { opacity: 1; }
   100% { stroke-dashoffset: -100; opacity: 0; }
 }
+@keyframes gd-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.7) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(45deg); }
+}
+@keyframes gd-breathe {
+  0%, 100% { opacity: 0.55; transform: scale(0.94); }
+  50% { opacity: 0.9; transform: scale(1.04); }
+}
 
-.gd-float { animation: gd-float 14s ease-in-out infinite; }
-.gd-float-reverse { animation: gd-float 17s ease-in-out infinite reverse; }
-.gd-sway { transform-box: fill-box; transform-origin: center; animation: gd-sway 22s ease-in-out infinite; }
-.gd-glint { animation: gd-glint 9s linear infinite; }
+.gd-layer {
+  transition: transform 0.12s linear;
+  transform: translate3d(calc(var(--px, 0) * var(--depth, 0) * 1px), calc(var(--py, 0) * var(--depth, 0) * 1px), 0);
+}
+.gd-float { animation: gd-float 9s ease-in-out infinite; }
+.gd-float-slow { animation: gd-float 13s ease-in-out infinite reverse; }
+.gd-sway { transform-box: fill-box; transform-origin: center; animation: gd-sway 14s ease-in-out infinite; }
+.gd-spin { transform-box: fill-box; transform-origin: center; animation: gd-spin 60s linear infinite; }
+.gd-glint { animation: gd-glint 6s ease-in-out infinite; }
+.gd-twinkle { animation: gd-twinkle 3.2s ease-in-out infinite; }
+.gd-breathe { animation: gd-breathe 8s ease-in-out infinite; }
 
 html:has(.landing) { scroll-behavior: smooth; }
 
 @media (prefers-reduced-motion: reduce) {
-  .gd-float, .gd-float-reverse, .gd-sway, .gd-glint { animation: none; }
+  .gd-float, .gd-float-slow, .gd-sway, .gd-spin, .gd-glint, .gd-twinkle, .gd-breathe { animation: none; }
   .gd-glint { opacity: 0; }
+  .gd-layer { transform: none; }
   html:has(.landing) { scroll-behavior: auto; }
+}
+
+/* ------------------------------------------------------------------
+   Landing · modo oscuro sutil. Sigue al sistema; el botón del
+   encabezado lo fija con data-theme. Solo redefine tokens.
+------------------------------------------------------------------- */
+.landing[data-theme='dark'] {
+  color-scheme: dark;
+  --color-ink: #f1eee8;
+  --color-ink-muted: #b3ada3;
+  --color-ink-subtle: #948e84;
+  --color-bg: #141312;
+  --color-surface: #1b1a18;
+  --color-surface-2: #262420;
+  --color-line: #45413a;
+  --color-line-card: #2e2c28;
+  --color-line-soft: #282622;
+  --color-line-paper: #33302b;
+  --color-pink-25: #1c1518;
+  --color-pink-50: #2a1d24;
+  --color-pink-200: #5e3f4e;
+  --color-pink-300: #a86f8c;
+  --color-pink-800: #f1c3d7;
+  --color-gold-25: #1f1a10;
+  --color-gold-50: #2a2213;
+  --color-gold-100: #4d3d1d;
+  --color-gold-500: #d9aa45;
+  --color-gold-700: #d9aa45;
+  --color-gold-900: #f0cf86;
+  --color-night: #0e0d0c;
+}
+
+@media (prefers-color-scheme: dark) {
+  .landing:not([data-theme='light']) {
+    color-scheme: dark;
+    --color-ink: #f1eee8;
+    --color-ink-muted: #b3ada3;
+    --color-ink-subtle: #948e84;
+    --color-bg: #141312;
+    --color-surface: #1b1a18;
+    --color-surface-2: #262420;
+    --color-line: #45413a;
+    --color-line-card: #2e2c28;
+    --color-line-soft: #282622;
+    --color-line-paper: #33302b;
+    --color-pink-25: #1c1518;
+    --color-pink-50: #2a1d24;
+    --color-pink-200: #5e3f4e;
+    --color-pink-300: #a86f8c;
+    --color-pink-800: #f1c3d7;
+    --color-gold-25: #1f1a10;
+    --color-gold-50: #2a2213;
+    --color-gold-100: #4d3d1d;
+    --color-gold-500: #d9aa45;
+    --color-gold-700: #d9aa45;
+    --color-gold-900: #f0cf86;
+    --color-night: #0e0d0c;
+}
+}
+
+/* En oscuro el dorado es claro: el texto sobre botones dorados pasa a oscuro. */
+.landing[data-theme='dark'] .bg-gold-700 { color: #141312; }
+@media (prefers-color-scheme: dark) {
+  .landing:not([data-theme='light']) .bg-gold-700 { color: #141312; }
 }

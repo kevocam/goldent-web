@@ -15,7 +15,7 @@ export function CareSection() {
         <ol className="m-0 grid list-none gap-5 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))]">
           {steps.map((s, i) => (
             <li key={s.title} className="flex flex-col gap-3 rounded-[22px] border border-line-card bg-surface p-[26px]">
-              <span aria-hidden className="flex size-10 items-center justify-center rounded-full bg-ink text-[17px] font-extrabold text-white">
+              <span aria-hidden className="flex size-10 items-center justify-center rounded-full bg-gold-700 text-[17px] font-extrabold text-white">
                 {i + 1}
               </span>
               <h3 className="m-0 text-xl font-extrabold">{s.title}</h3>
