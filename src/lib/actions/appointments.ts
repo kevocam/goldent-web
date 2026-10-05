@@ -6,13 +6,14 @@ import { DEFAULT_DURATION, findOverlap, formatTime12, limaDate, limaTime, minute
 import { appointmentSchema, appointmentStatusSchema, type AppointmentRawInput } from '@/lib/schemas/appointment';
 import type { ActionResult, AppointmentStatus } from '@/types/domain';
 import { dbErrorMessage, fieldErrors } from './errors';
+import { APP_HOME } from '@/lib/constants';
 
 /** Clave en fieldErrors que avisa de un cruce de horario (la UI ofrece "Agendar igual"). */
 const OVERLAP = 'overlap';
 
 function revalidate(patientId?: string) {
   revalidatePath('/agenda');
-  revalidatePath('/');
+  revalidatePath(APP_HOME);
   if (patientId) revalidatePath(`/pacientes/${patientId}`);
 }
 

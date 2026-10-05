@@ -111,3 +111,35 @@
     text-transform: uppercase;
   }
 }
+
+/* ------------------------------------------------------------------
+   Landing · diamante del hero con movimiento sutil (solo CSS).
+   Respeta "reducir movimiento" del sistema.
+------------------------------------------------------------------- */
+@keyframes gd-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes gd-sway {
+  0%, 100% { transform: rotate(-1.2deg); }
+  50% { transform: rotate(1.2deg); }
+}
+@keyframes gd-glint {
+  0% { stroke-dashoffset: 0; opacity: 0; }
+  15% { opacity: 0.9; }
+  85% { opacity: 0.9; }
+  100% { stroke-dashoffset: -100; opacity: 0; }
+}
+
+.gd-float { animation: gd-float 14s ease-in-out infinite; }
+.gd-float-reverse { animation: gd-float 17s ease-in-out infinite reverse; }
+.gd-sway { transform-box: fill-box; transform-origin: center; animation: gd-sway 22s ease-in-out infinite; }
+.gd-glint { animation: gd-glint 9s linear infinite; }
+
+html:has(.landing) { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gd-float, .gd-float-reverse, .gd-sway, .gd-glint { animation: none; }
+  .gd-glint { opacity: 0; }
+  html:has(.landing) { scroll-behavior: auto; }
+}

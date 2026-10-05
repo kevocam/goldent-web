@@ -23,7 +23,7 @@ src/
       reset-password/page.tsx
     (app)/
       layout.tsx                     AppShell + OnlineStatusProvider + Toaster
-      page.tsx                       Inicio / buscador
+      inicio/page.tsx                Inicio / buscador (APP_HOME)
       captura/page.tsx
       agenda/page.tsx                fase 2
       pacientes/
@@ -34,6 +34,7 @@ src/
           error.tsx
           editar/page.tsx
           visitas/nueva/page.tsx
+    page.tsx                         Landing pública (/) · lib/clinic.ts
     auth/callback/route.ts           callback de recuperar contraseña
     layout.tsx                       <html lang="es-PE">, Manrope
     globals.css                      tokens (@theme)
@@ -237,7 +238,12 @@ Cada página **solo compone** componentes; no contiene estilos ni lógica de neg
 - **Tipo:** server (redirige a `/` si hay sesión) → `LoginForm`.
 - **Compone:** panel de marca + `LoginForm`.
 
-### `/` · Inicio · F02
+### `/` · Landing pública
+- **Tipo:** server, estática y pública (el middleware deja pasar `/`). Indexable; el resto del sistema sigue `noindex`.
+- **Datos:** `lib/clinic.ts` (dirección, WhatsApp, geo; horario y doctora en `null` se ocultan).
+- **Compone:** `SiteHeader` · `Hero` (+ `HeroDiamonds`, animación solo CSS `gd-*` con `prefers-reduced-motion`) · `ServicesSection` · `CareSection` · `DoctorSection` · `LocationSection` (mapa embebido) · `AccessSection` (reusa `LoginForm`) · `SiteFooter`. JSON-LD `Dentist`.
+
+### `/inicio` · Inicio · F02
 - **Tipo:** server.
 - **Datos:** `getRecentPatients(6)`.
 - **Compone:** `PageHeader`/`HomeHeader` · `PatientSearchBox` + `SearchResults` (client, `usePatientSearch`) · `RecentPatients` · `TodayAppointmentsCard`.

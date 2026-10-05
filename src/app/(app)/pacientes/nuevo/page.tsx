@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { PatientForm } from '@/components/features/patient-form/patient-form';
 import { getNextRecordNumber, getPatientConditions } from '@/lib/data/patients';
 import type { PatientFormValues } from '@/lib/schemas/patient';
+import { APP_HOME } from '@/lib/constants';
 
 export const metadata: Metadata = { title: 'Nuevo paciente' };
 
@@ -31,7 +32,7 @@ export default async function NewPatientPage({ searchParams }: { searchParams: P
         recordLabel={`${next} · se asigna automáticamente`}
         conditions={conditions}
         defaultValues={prefill(search)}
-        cancelHref="/"
+        cancelHref={APP_HOME}
       />
     </main>
   );

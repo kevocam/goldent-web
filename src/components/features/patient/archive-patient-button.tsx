@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ConfirmDialog } from '@/components/ui/dialog';
 import { useToast } from '@/components/ui/toast';
 import { archivePatient } from '@/lib/actions/patients';
+import { APP_HOME } from '@/lib/constants';
 
 /** Soft delete con confirmación. El paciente deja de aparecer en el buscador. */
 export function ArchivePatientButton({ patientId, name }: { patientId: string; name: string }) {
@@ -37,7 +38,7 @@ export function ArchivePatientButton({ patientId, name }: { patientId: string; n
               return;
             }
             toast({ title: 'Paciente archivado', description: name });
-            router.replace('/');
+            router.replace(APP_HOME);
           })
         }
       />
