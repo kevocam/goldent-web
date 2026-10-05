@@ -158,10 +158,22 @@
 
 html:has(.landing) { scroll-behavior: smooth; }
 
+@keyframes gd-fade {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+
+/*
+ * "Reducir movimiento" (Windows: Efectos de animación desactivados; macOS: Reducir
+ * movimiento): nada se desplaza ni gira, pero los destellos siguen latiendo solo con
+ * opacidad, que no marea. Así el hero no se ve "muerto".
+ */
 @media (prefers-reduced-motion: reduce) {
-  .gd-float, .gd-float-slow, .gd-sway, .gd-spin, .gd-glint, .gd-twinkle, .gd-breathe { animation: none; }
-  .gd-glint { opacity: 0; }
-  .gd-layer { transform: none; }
+  .gd-float, .gd-float-slow, .gd-sway, .gd-spin { animation: none; }
+  .gd-layer { transform: none; transition: none; }
+  .gd-glint { stroke-dasharray: none; animation: gd-fade 5s ease-in-out infinite; }
+  .gd-twinkle { animation: gd-fade 3.2s ease-in-out infinite; }
+  .gd-breathe { animation: gd-fade 8s ease-in-out infinite; }
   html:has(.landing) { scroll-behavior: auto; }
 }
 
